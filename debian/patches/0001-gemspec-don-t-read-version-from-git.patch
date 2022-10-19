@@ -1,0 +1,18 @@
+From: Antonio Terceiro <asa@terceiro.xyz>
+Date: Fri, 3 Apr 2020 14:42:44 -0300
+Subject: gemspec: don't read version from git
+
+---
+ ruby2_keywords.gemspec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ruby2_keywords.gemspec b/ruby2_keywords.gemspec
+index 623c58c..74f92ae 100644
+--- a/ruby2_keywords.gemspec
++++ b/ruby2_keywords.gemspec
+@@ -1,4 +1,4 @@
+-version = IO.popen(%W[git -C #{__dir__} describe --tags --match v[0-9]*], &:read)[/\Av?(\d+(?:\.\d+)*)/, 1]
++version = `dpkg-parsechangelog -SVersion`.split('-').first
+ 
+ Gem::Specification.new do |s|
+   s.name = "ruby2_keywords"

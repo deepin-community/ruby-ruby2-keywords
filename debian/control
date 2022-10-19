@@ -1,0 +1,25 @@
+Source: ruby-ruby2-keywords
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb (>= 1)
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-ruby2-keywords.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-ruby2-keywords
+Homepage: https://github.com/ruby/ruby2_keywords
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-ruby2-keywords
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: source-level compatibility library between ruby2.7 and ruby3
+ This package provides an empty `Module#ruby2_keywords` method for ruby2.7,
+ used to achieve source-level compatibility between ruby2.7 and ruby3. On
+ ruby3, it does nothing.
